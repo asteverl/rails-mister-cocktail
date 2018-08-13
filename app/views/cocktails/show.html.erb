@@ -1,0 +1,33 @@
+<div class="banner">
+  <div class="banner-content">
+    <h1><%= @cocktail.name %> </h1>
+    <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+
+<div class="container dashboard">
+  <br>
+  <h3>This is how you prepare it:</h3>
+  <ol class="list-group">
+    <% @cocktail.doses.all.each do |dose| %>
+      <li class="list-group-item">
+        <div class="ingredients-list">
+          <div> <%= "#{dose.ingredient.name} -->" %>
+          <%= dose.description %>
+          </div>
+          <div> <%= link_to cocktail_dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
+          </div>
+
+        </div>
+      </li>
+    <% end %>
+  </ol>
+  <br>
+</div>
+
+<div class="container text-center">
+<br>
+<%= link_to "Back to cocktails", cocktails_path, class: "btn btn-primary " %>
+</div>

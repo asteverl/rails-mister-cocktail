@@ -1,0 +1,22 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <img src="images/logo.png" alt="logo">
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right">
+    <div>
+     <%= form_tag cocktails_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a cocktail"
+      %>
+    <% end %>
+    </div>
+    <div>
+      <%= link_to "Create a new cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </div>
+  </div>
+</div>
